@@ -44,6 +44,35 @@
       .dn-esn-value { font-size: 1.3rem; font-weight: 700; color: #dc3545; }
       .dn-table thead th { font-size: 0.8rem; text-transform: uppercase; }
       .scan-input-box { border: 2px solid #17a2b8 !important; border-radius: 50px !important; padding-left: 20px; }
+
+      /* Professional A4 Print Optimization */
+      @media print {
+        body {
+          background-color: #fff !important;
+          color: #000 !important;
+          margin: 0;
+          padding: 0;
+        }
+        .app-header, .app-sidebar, .app-footer, .app-content-header, .no-print, .btn, .modal, .print-hide {
+          display: none !important;
+        }
+        .app-wrapper, .app-main, .app-content {
+          margin: 0 !important;
+          padding: 0 !important;
+          background: #fff !important;
+        }
+        .material-note-container {
+          border: none !important;
+          box-shadow: none !important;
+          padding: 0 !important;
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+        @page {
+          size: A4 portrait;
+          margin: 15mm;
+        }
+      }
     </style>
   </head>
   <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
@@ -127,7 +156,7 @@
                 <!-- Utilities & Tools -->
                 <li class="nav-header text-uppercase text-xs fw-bold text-muted mt-2">System Tools</li>
                 <li class="nav-item">
-                  <a href="scanner.html" class="nav-link">
+                  <a href="scanner.html" class="nav-link active">
                     <i class="nav-icon bi bi-upc-scan"></i>
                     <p>QR / Barcode Scanner</p>
                   </a>
@@ -148,7 +177,7 @@
       <main class="app-main">
         <div class="app-content-header">
           <div class="container-fluid">
-            <div class="row">
+            <div class="row align-items-center g-3">
               <div class="col-sm-8">
                 <h1 class="mb-0 fs-3">QR / Barcode Scanner - Material Lookup</h1>
               </div>
@@ -168,7 +197,7 @@
             <!-- THE MATERIAL RECORD LAYOUT -->
             <div class="row justify-content-center" id="resultCard">
               <div class="col-xl-10 col-lg-12">
-                <div class="material-note-container shadow-lg mb-5">
+                <div class="material-note-container shadow-lg mb-5 rounded">
                   <div class="note-watermark">EEMC Material Record</div>
 
                   <!-- 1. Header & Title -->
@@ -187,20 +216,20 @@
                   </div>
 
                   <!-- 2. RO/PO, ESN, Delivery ID & Current Location -->
-                  <div class="row mb-5 text-start">
-                    <div class="col-md-3 mb-3">
+                  <div class="row mb-5 text-start g-3">
+                    <div class="col-md-3 col-6">
                       <span class="dn-label">Order Type & No</span>
                       <span class="dn-value text-primary fw-bold">RO-9241 (Repair Order)</span>
                     </div>
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-3 col-6">
                       <span class="dn-label">ESN (Engine Serial No)</span>
                       <span class="dn-esn-value">ESN-77421</span>
                     </div>
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-3 col-6">
                       <span class="dn-label">Delivery ID / Waybill</span>
                       <span class="dn-value">DEL-88392</span>
                     </div>
-                    <div class="col-md-3 mb-3">
+                    <div class="col-md-3 col-6">
                       <span class="dn-label">Current Location</span>
                       <span class="dn-value text-dark fw-bold"><i class="bi bi-geo-alt-fill text-danger me-1"></i>GE-02-04</span>
                     </div>
@@ -211,7 +240,7 @@
                   <!-- 3. Line Items Parts List -->
                   <h5 class="fw-bold text-secondary mb-3"><i class="bi bi-boxes me-1"></i> Included Part(s) List</h5>
                   <div class="table-responsive">
-                    <table class="table table-bordered dn-table table-striped align-middle">
+                    <table class="table table-bordered dn-table table-striped align-middle mb-0">
                       <thead class="table-light">
                         <tr>
                           <th style="width: 25%;">Part Number</th>
@@ -238,15 +267,16 @@
                   </div>
 
                   <!-- 4. Attached Files / Footer QR -->
-                  <div class="row mt-5 text-start pt-4 border-top">
+                  <div class="row mt-5 text-start pt-4 border-top align-items-center">
                     <div class="col-md-8">
-                      <div class="bg-light p-3 rounded mb-3">
+                      <!-- Attached Documents Hidden on Print using .print-hide -->
+                      <div class="bg-light p-3 rounded mb-3 print-hide">
                         <label class="fw-bold dn-label"><i class="bi bi-paperclip me-1"></i> Attached Document(s):</label>
-                        <a href="#" class="btn btn-sm btn-outline-primary text-sm me-2"><i class="bi bi-file-earmark-pdf me-1"></i> document.pdf</a>
-                        <a href="#" class="btn btn-sm btn-outline-primary text-sm"><i class="bi bi-file-earmark-image me-1"></i> Box_Photo.jpg</a>
+                        <a href="#" class="btn btn-sm btn-outline-primary text-sm me-2 mb-1"><i class="bi bi-file-earmark-pdf me-1"></i> document.pdf</a>
+                        <a href="#" class="btn btn-sm btn-outline-primary text-sm mb-1"><i class="bi bi-file-earmark-image me-1"></i> Box_Photo.jpg</a>
                       </div>
-                      <div class="mt-4">
-                        <p class="text-muted text-xs">Official Record — EEMC Receiving Area Inventory Tracking System</p>
+                      <div class="mt-2">
+                        <p class="text-muted text-xs mb-0">Official Record — EEMC Receiving Area Inventory Tracking System</p>
                       </div>
                     </div>
                     <div class="col-md-4 text-center mt-md-0 mt-4">
@@ -255,25 +285,23 @@
                     </div>
                   </div>
 
-                  <!-- Action Buttons -->
-                  <div class="text-end mt-5 pt-3 border-top">
-                    <div class="d-flex gap-2 justify-content-center mt-3">
-  <!-- Edit Status Button -->
-  <button class="btn btn-warning btn-sm fw-bold px-3 shadow-sm d-inline-flex align-items-center gap-1 text-dark" 
-          data-bs-toggle="modal" 
-          data-bs-target="#editOrderModal"
-          onclick="loadEditData('RO-9241', 'ESN-77421', 'DEL-88392', 'Hangar G - Bay 600', 'Planned', 'Urgent')">
-    <i class="bi bi-pencil-square"></i>
-    <span>Edit Status</span>
-  </button>
+                  <!-- Action Buttons (Hidden on A4 Print) -->
+                  <div class="text-end mt-5 pt-3 border-top no-print">
+                    <div class="d-flex gap-2 justify-content-center mt-3 flex-wrap">
+                      <button class="btn btn-warning btn-sm fw-bold px-3 shadow-sm d-inline-flex align-items-center gap-1 text-dark" 
+                              data-bs-toggle="modal" 
+                              data-bs-target="#editOrderModal"
+                              onclick="loadEditData('RO-9241', 'ESN-77421', 'DEL-88392', 'Hangar G - Bay 600', 'Planned', 'Urgent')">
+                        <i class="bi bi-pencil-square"></i>
+                        <span>Edit Status</span>
+                      </button>
 
-  <!-- Print Record / Thermal Label Button -->
-  <button class="btn btn-success btn-sm fw-bold px-3 shadow-sm d-inline-flex align-items-center gap-1 text-white" 
-          onclick="printFullRecord('RO-9241', 'ESN-77421', 'DEL-88392', 'Hangar G - Bay 600', 'Planned', 'Urgent')">
-    <i class="bi bi-printer-fill"></i>
-    <span>Print Record</span>
-  </button>
-</div>
+                      <button class="btn btn-success btn-sm fw-bold px-3 shadow-sm d-inline-flex align-items-center gap-1 text-white" 
+                              onclick="window.print()">
+                        <i class="bi bi-printer-fill"></i>
+                        <span>Print A4 Record</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -283,62 +311,59 @@
         </div>
       </main>
 
-
       <!-- Professional Edit Order & Status Modal -->
-<div class="modal fade" id="editOrderModal" tabindex="-1" aria-labelledby="editOrderModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content border-0 shadow-lg">
-      <div class="modal-header bg-warning text-dark px-4 py-3">
-        <h5 class="modal-title fw-bold" id="editOrderModalLabel">
-          <i class="bi bi-pencil-square me-2"></i> Update Order Status & Details
-        </h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal fade" id="editOrderModal" tabindex="-1" aria-labelledby="editOrderModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-warning text-dark px-4 py-3">
+              <h5 class="modal-title fw-bold" id="editOrderModalLabel">
+                <i class="bi bi-pencil-square me-2"></i> Update Order Status & Details
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="#" method="POST" id="scannerEditForm">
+              <div class="modal-body p-4 bg-light">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label text-xs fw-bold text-uppercase text-muted">Order Number</label>
+                    <input type="text" class="form-control form-control-sm bg-white fw-bold text-primary" id="eOrderNo" readonly>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label text-xs fw-bold text-uppercase text-muted">ESN (Engine Serial No)</label>
+                    <input type="text" class="form-control form-control-sm bg-white fw-semibold" id="eEsnNo" readonly>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label text-xs fw-bold text-uppercase text-muted">Receiving Status <span class="text-danger">*</span></label>
+                    <select class="form-select form-select-sm fw-semibold" id="eStatus" required>
+                      <option value="Planned">Planned</option>
+                      <option value="Under MIO Inspection">Under MIO Inspection</option>
+                      <option value="MRB">MRB</option>
+                      <option value="Released">Released</option>
+                      <option value="Cancelled">Cancelled</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label text-xs fw-bold text-uppercase text-muted">Priority Status <span class="text-danger">*</span></label>
+                    <select class="form-select form-select-sm fw-semibold" id="ePriority" required>
+                      <option value="Normal">Normal</option>
+                      <option value="Urgent">Urgent</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer bg-white px-4 py-3 d-flex justify-content-between align-items-center border-top">
+                <small class="text-muted"><i class="bi bi-shield-lock me-1"></i> EEMC Scanner Terminal</small>
+                <div>
+                  <button type="button" class="btn btn-secondary btn-sm px-3 me-2" data-bs-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn btn-warning text-dark fw-bold btn-sm px-4 shadow-sm">
+                    <i class="bi bi-check-circle-fill me-1"></i> Update Status
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-      <form action="#" method="POST" id="scannerEditForm">
-        <div class="modal-body p-4 bg-light">
-          <div class="row g-3">
-            <div class="col-md-6">
-              <label class="form-label text-xs fw-bold text-uppercase text-muted">Order Number</label>
-              <input type="text" class="form-control form-control-sm bg-white fw-bold text-primary" id="eOrderNo" readonly>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label text-xs fw-bold text-uppercase text-muted">ESN (Engine Serial No)</label>
-              <input type="text" class="form-control form-control-sm bg-white fw-semibold" id="eEsnNo" readonly>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label text-xs fw-bold text-uppercase text-muted">Receiving Status <span class="text-danger">*</span></label>
-              <select class="form-select form-select-sm fw-semibold" id="eStatus" required>
-                <option value="Planned">Planned</option>
-                <option value="Under MIO Inspection">Under MIO Inspection</option>
-                <option value="MRB">MRB</option>
-                <option value="Released">Released</option>
-                <option value="Cancelled">Cancelled</option>
-              </select>
-            </div>
-            <div class="col-md-6">
-              <label class="form-label text-xs fw-bold text-uppercase text-muted">Priority Status <span class="text-danger">*</span></label>
-              <select class="form-select form-select-sm fw-semibold" id="ePriority" required>
-                <option value="Normal">Normal</option>
-                <option value="Urgent">Urgent</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer bg-white px-4 py-3 d-flex justify-content-between align-items-center border-top">
-          <small class="text-muted"><i class="bi bi-shield-lock me-1"></i> EEMC Scanner Terminal</small>
-          <div>
-            <button type="button" class="btn btn-secondary btn-sm px-3 me-2" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-warning text-dark fw-bold btn-sm px-4 shadow-sm">
-              <i class="bi bi-check-circle-fill me-1"></i> Update Status
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-
 
       <footer class="app-footer">
         <div class="float-end d-none d-sm-inline">EEMC Hangar G</div>
@@ -346,108 +371,21 @@
       </footer>
     </div>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.16.0/browser/overlayscrollbars.browser.es6.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <script src="dist/js/adminlte.js"></script>
 
-
     <script>
-  // Load Data into Edit Modal from Scanner Result
-  function loadEditData(orderNo, esn, deliveryId, location, status, priority) {
-    document.getElementById('eOrderNo').value = orderNo;
-    document.getElementById('eEsnNo').value = esn;
-    // Agar status aur priority selects hain toh unhe select karo
-    let statusSelect = document.getElementById('eStatus');
-    if(statusSelect) statusSelect.value = status;
-    
-    let prioritySelect = document.getElementById('ePriority');
-    if(prioritySelect) prioritySelect.value = priority;
-  }
-
-  // Print Full Record / Thermal Report from Scanner View
-  function printFullRecord(orderNo, esn, deliveryId, location, status, priority) {
-    let printWindow = window.open('', '_blank', 'width=900,height=700');
-    
-    let htmlContent = `
-      <!doctype html>
-      <html lang="en">
-        <head>
-          <title>Scanner Record - ${orderNo}</title>
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css">
-          <style>
-            body { background-color: #fff; font-family: 'Source Sans 3', sans-serif; padding: 30px; }
-            .material-note-container { background-color: #fff; border: 1px solid #dee2e6; padding: 40px; position: relative; overflow: hidden; }
-            .note-watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 75px; color: rgba(0, 0, 0, 0.025); font-weight: bold; text-transform: uppercase; letter-spacing: 8px; z-index: 0; pointer-events: none; white-space: nowrap; }
-            .dn-label { font-size: 0.75rem; text-transform: uppercase; font-weight: bold; color: #6c757d; display: block; }
-            .dn-value { font-size: 1.1rem; font-weight: 600; color: #212529; }
-            .dn-esn-value { font-size: 1.3rem; font-weight: 700; color: #dc3545; }
-            @media print { .no-print { display: none !important; } }
-          </style>
-        </head>
-        <body>
-          <div class="container">
-            <div class="material-note-container shadow-sm">
-              <div class="note-watermark">EEMC Scanner Log</div>
-              <div class="row align-items-center mb-4 pb-3 border-bottom">
-                <div class="col-6">
-                  <h2 class="fw-bold text-dark m-0">EEMC <span class="fw-light">Dubai</span></h2>
-                  <p class="text-muted text-sm m-0">Engine Maintenance Centre - Hangar G</p>
-                </div>
-                <div class="col-6 text-end">
-                  <h4 class="text-uppercase text-secondary fw-bold m-0">SCANNED MATERIAL RECORD</h4>
-                  <div class="mt-2">
-                    <span class="badge bg-danger me-1">${priority}</span>
-                    <span class="badge bg-warning text-dark">${status}</span>
-                  </div>
-                </div>
-              </div>
-              <div class="row mb-4">
-                <div class="col-3">
-                  <span class="dn-label">Order Number</span>
-                  <span class="dn-value text-primary fw-bold">${orderNo}</span>
-                </div>
-                <div class="col-3">
-                  <span class="dn-label">ESN Number</span>
-                  <span class="dn-esn-value">${esn}</span>
-                </div>
-                <div class="col-3">
-                  <span class="dn-label">Delivery ID</span>
-                  <span class="dn-value">${deliveryId}</span>
-                </div>
-                <div class="col-3">
-                  <span class="dn-label">Location</span>
-                  <span class="dn-value text-dark fw-bold">${location}</span>
-                </div>
-              </div>
-              <div class="row mt-4 pt-3 border-top align-items-center">
-                <div class="col-8">
-                  <p class="text-muted text-xs mb-0"><strong>Verified via Barcode/QR Scanner Terminal</strong> — EEMC Hangar G.</p>
-                </div>
-                <div class="col-4 text-end">
-                  <img src="https://api.qrserver.com/v1/create-qr-code/?size=70x70&data=${orderNo}" alt="QR" />
-                </div>
-              </div>
-            </div>
-            <div class="text-center mt-4 no-print">
-              <button onclick="window.print()" class="btn btn-primary btn-sm px-4"><i class="bi bi-printer me-1"></i> Print Now</button>
-              <button onclick="window.close()" class="btn btn-secondary btn-sm px-4 ms-2">Close</button>
-            </div>
-          </div>
-        </body>
-      </html>
-    `;
-
-    printWindow.document.open();
-    printWindow.document.write(htmlContent);
-    printWindow.document.close();
-
-    setTimeout(function() {
-      printWindow.focus();
-      printWindow.print();
-    }, 600);
-  }
-</script>
+      function loadEditData(orderNo, esn, deliveryId, location, status, priority) {
+        document.getElementById('eOrderNo').value = orderNo;
+        document.getElementById('eEsnNo').value = esn;
+        let statusSelect = document.getElementById('eStatus');
+        if(statusSelect) statusSelect.value = status;
+        let prioritySelect = document.getElementById('ePriority');
+        if(prioritySelect) prioritySelect.value = priority;
+      }
+    </script>
   </body>
 </html>
