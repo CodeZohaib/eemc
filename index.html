@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>EEMC | Receiving & Backlog Dashboard</title>
-
+    
     <!--begin::Theme Init-->
     <script>
       (() => {
@@ -188,10 +188,10 @@
         <div class="app-content">
           <div class="container-fluid">
             
-            <!--begin::Small Boxes Row-->
+            <!--begin::Small Boxes Row (100% Mobile Responsive Grid)-->
             <div class="row">
-              <div class="col-lg-3 col-6">
-                <div class="small-box text-bg-primary shadow-sm border-0">
+              <div class="col-xl-3 col-md-6 col-12 mb-3">
+                <div class="small-box text-bg-primary shadow-sm border-0 h-100">
                   <div class="inner">
                     <h3>150</h3>
                     <p>Total Repair Orders (RO)</p>
@@ -204,8 +204,8 @@
                   </a>
                 </div>
               </div>
-              <div class="col-lg-3 col-6">
-                <div class="small-box text-bg-success shadow-sm border-0">
+              <div class="col-xl-3 col-md-6 col-12 mb-3">
+                <div class="small-box text-bg-success shadow-sm border-0 h-100">
                   <div class="inner">
                     <h3>94</h3>
                     <p>Total Purchase Orders (PO)</p>
@@ -218,8 +218,8 @@
                   </a>
                 </div>
               </div>
-              <div class="col-lg-3 col-6">
-                <div class="small-box text-bg-warning shadow-sm border-0">
+              <div class="col-xl-3 col-md-6 col-12 mb-3">
+                <div class="small-box text-bg-warning shadow-sm border-0 h-100">
                   <div class="inner">
                     <h3>12</h3>
                     <p>Urgent Priorities</p>
@@ -232,8 +232,8 @@
                   </a>
                 </div>
               </div>
-              <div class="col-lg-3 col-6">
-                <div class="small-box text-bg-danger shadow-sm border-0">
+              <div class="col-xl-3 col-md-6 col-12 mb-3">
+                <div class="small-box text-bg-danger shadow-sm border-0 h-100">
                   <div class="inner">
                     <h3>5</h3>
                     <p>MRB / Inspection</p>
@@ -252,15 +252,15 @@
             <!--begin::Main Row (Table + Scanner)-->
             <div class="row">
               <!-- Left Side: Recent Tracking Table -->
-              <div class="col-lg-8">
-                <div class="card card-primary card-outline mb-4 border-0 shadow-sm">
-                  <div class="card-header bg-white py-3">
+              <div class="col-lg-8 col-12 mb-4">
+                <div class="card card-primary card-outline border-0 shadow-sm">
+                  <div class="card-header bg-white py-3 d-flex flex-wrap justify-content-between align-items-center gap-2">
                     <h3 class="card-title fw-bold text-dark m-0">
-                      <i class="bi bi-list-task me-1 text-primary"></i> Recent Receiving & Backlogs (RO & PO Tracking)
+                      <i class="bi bi-list-task me-1 text-primary"></i> Recent Receiving & Backlogs
                     </h3>
                   </div>
                   <div class="card-body table-responsive p-0">
-                    <table class="table table-hover table-striped align-middle mb-0">
+                    <table class="table table-hover table-striped align-middle mb-0 text-nowrap">
                       <thead class="table-light text-uppercase text-xs">
                         <tr>
                           <th>Type</th>
@@ -315,15 +315,15 @@
               </div>
 
               <!-- Right Side: Quick Scanner & Shortcuts -->
-              <div class="col-lg-4">
+              <div class="col-lg-4 col-12 mb-4">
                 <div class="card text-white bg-dark bg-gradient border-0 mb-4 shadow-sm">
                   <div class="card-header bg-transparent border-0 pt-3">
-                    <h3 class="card-title fw-bold"><i class="bi bi-upc-scan me-2 text-warning"></i> Quick QR / Barcode Scanner</h3>
+                    <h3 class="card-title fw-bold"><i class="bi bi-upc-scan me-2 text-warning"></i> Quick Scanner</h3>
                   </div>
                   <div class="card-body text-center py-4">
-                    <p class="text-light text-sm mb-3">USB scanner gun se engine tag scan karein ya manual RO/PO number enter karein.</p>
+                    <p class="text-light text-sm mb-3">USB scanner gun se engine tag scan karein ya manual number enter karein.</p>
                     <div class="input-group mb-3">
-                      <input type="text" class="form-control form-control-sm" placeholder="Scan RO/PO Barcode here...">
+                      <input type="text" class="form-control form-control-sm" placeholder="Scan Barcode...">
                       <button class="btn btn-warning btn-sm fw-bold text-dark px-3" type="button">Search</button>
                     </div>
                   </div>
