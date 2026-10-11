@@ -117,13 +117,13 @@
       <main class="app-main">
         <div class="app-content-header">
           <div class="container-fluid">
-            <div class="row align-items-center">
+            <div class="row">
               <div class="col-sm-6">
                 <h1 class="mb-0 fs-3">Purchase Orders (PO) Master Tracking</h1>
               </div>
               <div class="col-sm-6">
                 <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb float-sm-end mb-0">
+                  <ol class="breadcrumb float-sm-end">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">PO Management</li>
                   </ol>
@@ -169,7 +169,7 @@
 
                   <!-- Advanced Filter Options & Excel Export -->
                   <div class="col-xl-4 col-lg-12">
-                    <div class="d-flex align-items-center justify-content-xl-end gap-2 flex-wrap">
+                    <div class="d-flex align-items-center justify-content-xl-end gap-2">
                       
                       <!-- Quick Filter by ESN Dropdown -->
                       <div class="input-group input-group-sm" style="max-width: 180px;">
@@ -195,10 +195,10 @@
               </div>
             </div>
 
-            <!-- Table Card with Responsive Wrapper -->
+            <!-- Table Card -->
             <div class="card card-info card-outline mb-4">
-              <div class="card-header d-flex flex-wrap justify-content-between align-items-center gap-2">
-                <h3 class="card-title m-0"><i class="bi bi-list-task me-1"></i> Purchase Orders List</h3>
+              <div class="card-header">
+                <h3 class="card-title"><i class="bi bi-list-task me-1"></i> Purchase Orders List</h3>
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 220px;">
                     <input type="text" class="form-control" placeholder="Search PO No / Part...">
@@ -208,7 +208,7 @@
               </div>
               
               <div class="card-body table-responsive p-0">
-                <table class="table table-hover table-striped align-middle text-nowrap mb-0">
+                <table class="table table-hover table-striped align-middle text-nowrap">
                   <thead>
                     <tr>
                       <th>PO Number</th>
@@ -224,27 +224,32 @@
                   <tbody>
                     <tr>
                       <td><span class="fw-bold text-info">PO-55102</span></td>
-                      <td>DEL-44120</td>
+                      <td>44120</td>
                       <td>402K300-02 <br><small class="text-muted">TURBINE BLADE</small></td>
                       <td>4</td>
                       <td>Bay 600</td>
                       <td><span class="badge bg-primary">Normal</span></td>
                       <td><span class="badge bg-warning text-dark">Planned</span></td>
                       <td class="text-center">
+                        <!-- View Details Button -->
                         <button class="btn btn-sm btn-light text-primary shadow-sm me-1" 
                                 title="View Details" 
                                 data-bs-toggle="modal" 
                                 data-bs-target="#viewOrderModal"
-                                onclick="loadViewDetails('PO-55102', 'ESN-55102', 'DEL-44120', 'Hangar G - Bay 600', 'Planned', 'Normal')">
+                                onclick="loadViewDetails('PO-55102', 'ESN-55102', '44120', 'Hangar G - Bay 600', 'Planned', 'Normal')">
                           <i class="bi bi-eye-fill"></i>
                         </button>
+
+                        <!-- Edit Order Button -->
                         <button class="btn btn-sm btn-light text-warning shadow-sm me-1" 
                                 title="Edit Order Details" 
                                 data-bs-toggle="modal" 
                                 data-bs-target="#editOrderModal"
-                                onclick="loadEditData('PO-55102', 'ESN-55102', 'DEL-44120', 'Hangar G - Bay 600', 'Planned', 'Normal')">
+                                onclick="loadEditData('PO-55102', 'ESN-55102', '44120', 'Hangar G - Bay 600', 'Planned', 'Normal')">
                           <i class="bi bi-pencil-square"></i>
                         </button>
+
+                        <!-- Delete Order Button -->
                         <button class="btn btn-sm btn-light text-danger shadow-sm" 
                                 title="Delete Order Record" 
                                 data-bs-toggle="modal" 
@@ -256,27 +261,32 @@
                     </tr>
                     <tr>
                       <td><span class="fw-bold text-info">PO-55105</span></td>
-                      <td>DEL-44189</td>
+                      <td>44189</td>
                       <td>910W200-08 <br><small class="text-muted">SEAL RING</small></td>
                       <td>6</td>
                       <td>Bay 600</td>
                       <td><span class="badge bg-danger">Urgent</span></td>
                       <td><span class="badge bg-info text-dark">Under MIO Inspection</span></td>
                       <td class="text-center">
+                        <!-- View Details Button -->
                         <button class="btn btn-sm btn-light text-primary shadow-sm me-1" 
                                 title="View Details" 
                                 data-bs-toggle="modal" 
                                 data-bs-target="#viewOrderModal"
-                                onclick="loadViewDetails('PO-55105', 'ESN-66419', 'DEL-44189', 'Hangar G - Bay 600', 'Under MIO Inspection', 'Urgent')">
+                                onclick="loadViewDetails('PO-55105', 'ESN-66419', '44189', 'Hangar G - Bay 600', 'Under MIO Inspection', 'Urgent')">
                           <i class="bi bi-eye-fill"></i>
                         </button>
+
+                        <!-- Edit Order Button -->
                         <button class="btn btn-sm btn-light text-warning shadow-sm me-1" 
                                 title="Edit Order Details" 
                                 data-bs-toggle="modal" 
                                 data-bs-target="#editOrderModal"
-                                onclick="loadEditData('PO-55105', 'ESN-66419', 'DEL-44189', 'Hangar G - Bay 600', 'Under MIO Inspection', 'Urgent')">
+                                onclick="loadEditData('PO-55105', 'ESN-66419', '44189', 'Hangar G - Bay 600', 'Under MIO Inspection', 'Urgent')">
                           <i class="bi bi-pencil-square"></i>
                         </button>
+
+                        <!-- Delete Order Button -->
                         <button class="btn btn-sm btn-light text-danger shadow-sm" 
                                 title="Delete Order Record" 
                                 data-bs-toggle="modal" 
@@ -312,25 +322,27 @@
               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-4" id="printableArea">
+              <!-- Header Details Grid -->
               <div class="row g-3 bg-light p-3 rounded mb-4 border">
-                <div class="col-sm-3 col-6">
+                <div class="col-sm-3">
                   <span class="text-xs text-muted text-uppercase fw-bold d-block">Order Number</span>
                   <span class="fs-6 fw-bold text-info" id="vDisplayOrderNo">PO-55102</span>
                 </div>
-                <div class="col-sm-3 col-6">
+                <div class="col-sm-3">
                   <span class="text-xs text-muted text-uppercase fw-bold d-block">ESN Number</span>
                   <span class="fs-6 fw-bold text-danger" id="vEsnNo">ESN-55102</span>
                 </div>
-                <div class="col-sm-3 col-6">
+                <div class="col-sm-3">
                   <span class="text-xs text-muted text-uppercase fw-bold d-block">Delivery ID</span>
-                  <span class="fs-6 fw-bold text-dark" id="vDeliveryId">DEL-44120</span>
+                  <span class="fs-6 fw-bold text-dark" id="vDeliveryId">44120</span>
                 </div>
-                <div class="col-sm-3 col-6">
+                <div class="col-sm-3">
                   <span class="text-xs text-muted text-uppercase fw-bold d-block">Current Location</span>
-                  <span class="fs-6 fw-bold text-dark" id="vLocation">GE-01-02</span>
+                  <span class="fs-6 fw-bold text-dark" id="vLocation">Hangar G - Bay 600</span>
                 </div>
               </div>
 
+              <!-- Status Badges Row -->
               <div class="d-flex align-items-center justify-content-between mb-3 px-1">
                 <h6 class="fw-bold text-secondary mb-0"><i class="bi bi-boxes me-1"></i> Part Line Items</h6>
                 <div>
@@ -339,8 +351,9 @@
                 </div>
               </div>
 
+              <!-- Line Items Table -->
               <div class="table-responsive mb-4">
-                <table class="table table-bordered align-middle mb-0">
+                <table class="table table-bordered align-middle">
                   <thead class="table-secondary text-uppercase text-xs">
                     <tr>
                       <th>Part Number</th>
@@ -360,25 +373,36 @@
                 </table>
               </div>
 
-              <div class="p-3 bg-body-secondary rounded border-start border-3 border-info d-flex flex-wrap justify-content-between align-items-center gap-2">
+              <!-- Attachments & Official Statement -->
+              <div class="p-3 bg-body-secondary rounded border-start border-3 border-info d-flex justify-content-between align-items-center">
                 <div>
                   <span class="text-xs fw-bold text-muted d-block mb-1"><i class="bi bi-paperclip me-1"></i> Attached Documents:</span>
                   <a href="#" class="btn btn-xs btn-outline-info py-1"><i class="bi bi-file-earmark-pdf me-1"></i> PO_Waybill.pdf</a>
                 </div>
-                <div class="text-end">
-                  <i class="bi bi-qr-code fs-3 text-secondary"></i>
+                <div class="text-end bg-white p-2 rounded shadow-sm d-inline-block">
+                  <div id="modalQRCode"></div>
+                  <small class="text-muted text-xs d-block mt-1">Scan to Verify</small>
                 </div>
               </div>
             </div>
 
-            <div class="modal-footer bg-light d-flex flex-wrap justify-content-between align-items-center gap-2 p-3">
-              <button type="button" class="btn btn-outline-dark btn-sm fw-semibold shadow-sm" onclick="printQrLabel()">
-                <i class="bi bi-qr-code-scan"></i><span> Print QR Label</span>
-              </button>
+            <div class="modal-footer bg-light d-flex justify-content-between align-items-center p-3">
+              <div>
+                <button type="button" class="btn btn-outline-dark btn-sm fw-semibold shadow-sm d-inline-flex align-items-center gap-1" onclick="printQrLabel()">
+                  <i class="bi bi-qr-code-scan"></i>
+                  <span>Print QR Label</span>
+                </button>
+              </div>
+
               <div class="d-flex align-items-center gap-2">
-                <button type="button" class="btn btn-secondary btn-sm px-3" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success btn-sm fw-bold shadow-sm px-3" onclick="printFullRecord('PO-55102', 'ESN-55102', 'DEL-44120', 'Hangar G - Bay 600', 'Planned', 'Normal')">
-                  <i class="bi bi-printer-fill"></i><span> Print Full Record</span>
+                <button type="button" class="btn btn-secondary btn-sm px-3 d-inline-flex align-items-center gap-1" data-bs-dismiss="modal">
+                  <i class="bi bi-x-circle"></i>
+                  <span>Close</span>
+                </button>
+
+                <button type="button" class="btn btn-success btn-sm fw-bold shadow-sm px-3 d-inline-flex align-items-center gap-1" onclick="printFullRecord()">
+                  <i class="bi bi-printer-fill"></i>
+                  <span>Print Full Record</span>
                 </button>
               </div>
             </div>
@@ -386,38 +410,46 @@
         </div>
       </div>
 
-      <!-- Edit Order Modal -->
-      <div class="modal fade" id="editOrderModal" tabindex="-1" aria-hidden="true">
+      <!-- Professional Multi-Row Edit Order & Parts Modal -->
+      <div class="modal fade" id="editOrderModal" tabindex="-1" aria-labelledby="editOrderModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered">
-          <div class="modal-content border-0 shadow-lg">
+          <div class="modal-content border-0 shadow-lg" style="max-height: 90vh;">
+            
             <div class="modal-header bg-warning text-dark px-4 py-3">
-              <h5 class="modal-title fw-bold"><i class="bi bi-pencil-square me-2"></i> Edit Purchase Order & Line Items Record</h5>
+              <h5 class="modal-title fw-bold" id="editOrderModalLabel">
+                <i class="bi bi-pencil-square me-2"></i> Edit Purchase Order & Line Items Record
+              </h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="#" method="POST">
+
+            <form action="#" method="POST" id="fullEditOrderForm">
               <div class="modal-body p-4 bg-light" style="max-height: 65vh; overflow-y: auto;">
+                
+                <!-- SECTION 1: Order Header Fields -->
                 <div class="card border-0 shadow-sm mb-4">
-                  <div class="card-header bg-dark text-white fw-bold text-xs text-uppercase py-2">Order Header Information</div>
+                  <div class="card-header bg-dark text-white fw-bold text-xs text-uppercase py-2">
+                    <i class="bi bi-info-circle me-1 text-warning"></i> Order Header Information
+                  </div>
                   <div class="card-body bg-white p-3">
                     <div class="row g-3">
-                      <div class="col-xl-3 col-md-6 col-12">
+                      <div class="col-md-3">
                         <label class="form-label text-xs fw-bold text-uppercase text-muted">Order Number</label>
                         <input type="text" class="form-control form-control-sm bg-light fw-bold text-info" id="eOrderNo" readonly>
                       </div>
-                      <div class="col-xl-3 col-md-6 col-12">
-                        <label class="form-label text-xs fw-bold text-uppercase text-muted">ESN *</label>
-                        <input type="text" class="form-control form-control-sm fw-semibold" id="eEsnNo" required>
+                      <div class="col-md-3">
+                        <label class="form-label text-xs fw-bold text-uppercase text-muted">ESN (Engine Serial No) <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control form-control-sm fw-semibold" id="eEsnNo" required placeholder="e.g. ESN-55102">
                       </div>
-                      <div class="col-xl-3 col-md-6 col-12">
-                        <label class="form-label text-xs fw-bold text-uppercase text-muted">Delivery ID</label>
-                        <input type="text" class="form-control form-control-sm fw-semibold" id="eDeliveryId">
+                      <div class="col-md-3">
+                        <label class="form-label text-xs fw-bold text-uppercase text-muted">Delivery ID / Waybill</label>
+                        <input type="text" class="form-control form-control-sm fw-semibold" id="eDeliveryId" placeholder="e.g. 44120">
                       </div>
-                      <div class="col-xl-3 col-md-6 col-12">
-                        <label class="form-label text-xs fw-bold text-uppercase text-muted">Location *</label>
-                        <input type="text" class="form-control form-control-sm fw-semibold" id="eLocation" required>
+                      <div class="col-md-3">
+                        <label class="form-label text-xs fw-bold text-uppercase text-muted">Current Location <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control form-control-sm fw-semibold" id="eLocation" required placeholder="e.g. Hangar G - Bay 600">
                       </div>
-                      <div class="col-md-6 col-12">
-                        <label class="form-label text-xs fw-bold text-uppercase text-muted">Status *</label>
+                      <div class="col-md-6">
+                        <label class="form-label text-xs fw-bold text-uppercase text-muted">Receiving Status <span class="text-danger">*</span></label>
                         <select class="form-select form-select-sm fw-semibold" id="eStatus" required>
                           <option value="Planned">Planned</option>
                           <option value="Under MIO Inspection">Under MIO Inspection</option>
@@ -426,8 +458,8 @@
                           <option value="Cancelled">Cancelled</option>
                         </select>
                       </div>
-                      <div class="col-md-6 col-12">
-                        <label class="form-label text-xs fw-bold text-uppercase text-muted">Priority *</label>
+                      <div class="col-md-6">
+                        <label class="form-label text-xs fw-bold text-uppercase text-muted">Priority Status <span class="text-danger">*</span></label>
                         <select class="form-select form-select-sm fw-semibold" id="ePriority" required>
                           <option value="Normal">Normal</option>
                           <option value="Urgent">Urgent</option>
@@ -437,66 +469,126 @@
                   </div>
                 </div>
 
+                <!-- SECTION 2: Dynamic Line Items Repeater -->
                 <div class="card border-0 shadow-sm">
-                  <div class="card-header bg-secondary text-white py-2 px-3">Included Part Line Items</div>
+                  <div class="card-header bg-secondary text-white py-2 px-3">
+                    <span class="fw-bold text-xs text-uppercase tracking-wider">
+                      <i class="bi bi-boxes me-1 text-warning"></i> Included Part Line Items & Components
+                    </span>
+                  </div>
                   <div class="card-body bg-white p-3">
                     <div class="table-responsive mb-3">
                       <table class="table table-bordered align-middle mb-0" id="editLineItemsTable">
                         <thead class="table-light text-uppercase text-xs">
-                          <tr><th>Part Number *</th><th>Description *</th><th>Quantity *</th><th class="text-center">Action</th></tr>
+                          <tr>
+                            <th style="width: 30%;">Part Number <span class="text-danger">*</span></th>
+                            <th style="width: 45%;">Description <span class="text-danger">*</span></th>
+                            <th style="width: 15%;">Quantity <span class="text-danger">*</span></th>
+                            <th style="width: 10%;" class="text-center">Action</th>
+                          </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <td><input type="text" class="form-control form-control-sm fw-bold text-info" value="402K300-02" required></td>
-                            <td><input type="text" class="form-control form-control-sm" value="TURBINE BLADE" required></td>
-                            <td><input type="number" class="form-control form-control-sm text-center" value="4" min="1" required></td>
-                            <td class="text-center"><button type="button" class="btn btn-outline-danger btn-sm py-0 px-2" onclick="removeEditRow(this)"><i class="bi bi-trash"></i></button></td>
+                            <td>
+                              <input type="text" class="form-control form-control-sm fw-bold text-info" value="402K300-02" required>
+                            </td>
+                            <td>
+                              <input type="text" class="form-control form-control-sm" value="TURBINE BLADE" required>
+                            </td>
+                            <td>
+                              <input type="number" class="form-control form-control-sm text-center" value="4" min="1" required>
+                            </td>
+                            <td class="text-center">
+                              <button type="button" class="btn btn-outline-danger btn-sm py-0 px-2" onclick="removeEditRow(this)" title="Remove Row">
+                                <i class="bi bi-trash"></i>
+                              </button>
+                            </td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
+
                     <div class="d-flex justify-content-end">
-                      <button type="button" class="btn btn-outline-success btn-sm fw-bold px-3 py-2" onclick="addEditLineRow()"><i class="bi bi-plus-circle-fill me-1"></i> Add New Part Row</button>
+                      <button type="button" class="btn btn-outline-success btn-sm fw-bold px-3 py-2 shadow-sm d-inline-flex align-items-center gap-2 rounded-pill hover-scale" onclick="addEditLineRow()">
+                        <i class="bi bi-plus-circle-fill text-success fs-6"></i>
+                        <span>Add New Part Row</span>
+                      </button>
                     </div>
                   </div>
                 </div>
+
               </div>
-              <div class="modal-footer bg-white px-4 py-3 d-flex justify-content-between align-items-center">
-                <small class="text-muted"><i class="bi bi-shield-lock me-1"></i> Authorized Only</small>
+
+              <div class="modal-footer bg-white px-4 py-3 d-flex justify-content-between align-items-center border-top">
+                <small class="text-muted"><i class="bi bi-shield-lock me-1"></i> Authorized Personnel Only</small>
                 <div>
                   <button type="button" class="btn btn-secondary btn-sm px-3 me-2" data-bs-dismiss="modal">Cancel</button>
-                  <button type="submit" class="btn btn-warning text-dark fw-bold btn-sm px-4">Save Changes</button>
+                  <button type="submit" class="btn btn-warning text-dark fw-bold btn-sm px-4 shadow-sm">
+                    <i class="bi bi-check-circle-fill me-1"></i> Save All Changes
+                  </button>
                 </div>
               </div>
             </form>
+
           </div>
         </div>
       </div>
 
-      <!-- Delete Confirmation Modal -->
-      <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-hidden="true">
+      <!-- Professional Delete Confirmation Modal -->
+      <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content border-0 shadow-lg text-center p-4">
-            <h5 class="fw-bold text-danger mb-3"><i class="bi bi-exclamation-triangle-fill"></i> Confirm Record Deletion</h5>
-            <p class="mb-3">Are you sure you want to delete <span id="delTargetOrder" class="fw-bold text-danger">PO-55102</span>?</p>
-            <div class="d-flex justify-content-between">
-              <button type="button" class="btn btn-secondary btn-sm px-3" data-bs-dismiss="modal">Cancel</button>
-              <button type="button" class="btn btn-danger btn-sm px-4 fw-bold" onclick="executeDeletion()">Yes, Delete</button>
+          <div class="modal-content border-0 shadow-lg">
+            
+            <div class="modal-header bg-danger text-white px-4 py-3">
+              <h5 class="modal-title fw-bold" id="deleteConfirmModalLabel">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i> Confirm Record Deletion
+              </h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+
+            <div class="modal-body p-4 text-center bg-light">
+              <div class="mb-3">
+                <i class="bi bi-trash3 text-danger" style="font-size: 3rem;"></i>
+              </div>
+              <h6 class="fw-bold text-dark mb-2">Are you sure you want to delete this purchase order?</h6>
+              <p class="text-muted text-sm mb-3">
+                Order Reference: <span id="delTargetOrder" class="fw-bold text-danger">PO-55102</span>
+              </p>
+              <div class="alert alert-warning text-xs text-start mb-0 py-2 border-0 shadow-sm">
+                <i class="bi bi-shield-exclamation me-1"></i>
+                <strong>Warning:</strong> This action is permanent. Once deleted, all linked part items and tracking logs will be removed from the active database.
+              </div>
+            </div>
+
+            <div class="modal-footer bg-white px-4 py-3 d-flex justify-content-between align-items-center border-top">
+              <button type="button" class="btn btn-secondary btn-sm px-3" data-bs-dismiss="modal">
+                <i class="bi bi-x-circle me-1"></i> Cancel
+              </button>
+              <button type="button" class="btn btn-danger btn-sm px-4 fw-bold shadow-sm" id="confirmDeleteBtn" onclick="executeDeletion()">
+                <i class="bi bi-trash-fill me-1"></i> Yes, Delete Record
+              </button>
+            </div>
+
           </div>
         </div>
       </div>
 
       <footer class="app-footer">
         <div class="float-end d-none d-sm-inline">EEMC Hangar G</div>
-        <strong>Copyright &copy; 2026 EEMC Operations.</strong> All rights reserved.
+        <strong>Copyright &copy; 2026 <a href="#" class="text-decoration-none">EEMC Operations</a>.</strong> All rights reserved.
       </footer>
     </div>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.16.0/browser/overlayscrollbars.browser.es6.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <!-- QRCode JS Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="dist/js/adminlte.js"></script>
+
     <script>
+      // 1. Load data into View Modal and Generate QR
       function loadViewDetails(orderNo, esn, deliveryId, location, status, priority) {
         document.getElementById('vOrderNo').innerText = orderNo;
         document.getElementById('vDisplayOrderNo').innerText = orderNo;
@@ -505,7 +597,22 @@
         document.getElementById('vLocation').innerText = location;
         document.getElementById('vStatusBadge').innerText = status;
         document.getElementById('vPriorityBadge').innerText = priority;
+
+        let qrContainer = document.getElementById('modalQRCode');
+        if (qrContainer) {
+          qrContainer.innerHTML = '';
+          new QRCode(qrContainer, {
+            text: "EEMC-LOGISTICS-" + orderNo + "-" + esn,
+            width: 75,
+            height: 75,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+          });
+        }
       }
+
+      // 2. Load data into Edit Modal
       function loadEditData(orderNo, esn, deliveryId, location, status, priority) {
         document.getElementById('eOrderNo').value = orderNo;
         document.getElementById('eEsnNo').value = esn;
@@ -514,36 +621,224 @@
         document.getElementById('eStatus').value = status;
         document.getElementById('ePriority').value = priority;
       }
+
+      // 3. Print Full Record (A4 Page)
+      function printFullRecord() {
+        let orderNo = document.getElementById('vDisplayOrderNo') ? document.getElementById('vDisplayOrderNo').innerText : 'PO-55102';
+        let esn = document.getElementById('vEsnNo') ? document.getElementById('vEsnNo').innerText : 'ESN-55102';
+        let deliveryId = document.getElementById('vDeliveryId') ? document.getElementById('vDeliveryId').innerText : '44120';
+        let location = document.getElementById('vLocation') ? document.getElementById('vLocation').innerText : 'Hangar G - Bay 600';
+        let status = document.getElementById('vStatusBadge') ? document.getElementById('vStatusBadge').innerText : 'Planned';
+        let priority = document.getElementById('vPriorityBadge') ? document.getElementById('vPriorityBadge').innerText : 'Normal';
+        
+        let modalTableRows = document.querySelector('#viewOrderModal tbody') ? document.querySelector('#viewOrderModal tbody').innerHTML : '';
+
+        let printWindow = window.open('', '_blank', 'width=900,height=700');
+        
+        let htmlContent = `
+          <!doctype html>
+          <html lang="en">
+            <head>
+              <title>Purchase Order Receiving Record - ${orderNo}</title>
+              <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+              <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css">
+              <style>
+                @page { size: A4; margin: 12mm; }
+                body { background-color: #fff; font-family: Arial, sans-serif; padding: 15px; color: #000; }
+                .material-note-container { background-color: #fff; border: 2px solid #000; padding: 30px; position: relative; overflow: hidden; width: 100%; max-width: 190mm; margin: 0 auto; box-sizing: border-box; }
+                .note-watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); font-size: 65px; color: rgba(0, 0, 0, 0.035); font-weight: bold; text-transform: uppercase; letter-spacing: 6px; z-index: 0; pointer-events: none; white-space: nowrap; }
+                .dn-label { font-size: 0.75rem; text-transform: uppercase; font-weight: bold; color: #444; display: block; }
+                .dn-value { font-size: 1.1rem; font-weight: 600; color: #212529; }
+                .dn-esn-value { font-size: 1.2rem; font-weight: 700; color: #dc3545; }
+                @media print {
+                  .no-print { display: none !important; }
+                  body { padding: 0; }
+                  .material-note-container { border: 2px solid #000; padding: 20px; box-shadow: none; }
+                }
+              </style>
+            </head>
+            <body>
+              <div class="container-fluid p-0">
+                <div class="material-note-container">
+                  <div class="note-watermark">EEMC OFFICIAL RECORD</div>
+
+                  <div class="row align-items-center mb-4 pb-3 border-bottom border-dark">
+                    <div class="col-7">
+                      <h2 class="fw-bold text-dark m-0">EEMC <span class="fw-light text-muted">Warehouse & Logistics</span></h2>
+                      <p class="text-muted text-sm m-0">Engine Maintenance Centre • Hangar G, Al Maktoum Int'l Airport</p>
+                    </div>
+                    <div class="col-5 text-end">
+                      <h5 class="text-uppercase text-secondary fw-bold m-0" style="letter-spacing: 1px;">PURCHASE ORDER RECORD</h5>
+                      <div class="mt-2">
+                        <span class="badge bg-primary me-1">${priority}</span>
+                        <span class="badge bg-warning text-dark">${status}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row mb-4 bg-light p-3 rounded border border-dark">
+                    <div class="col-3">
+                      <span class="dn-label">Order Number</span>
+                      <span class="dn-value text-info fw-bold">${orderNo}</span>
+                    </div>
+                    <div class="col-3">
+                      <span class="dn-label">ESN Number</span>
+                      <span class="dn-esn-value">${esn}</span>
+                    </div>
+                    <div class="col-3">
+                      <span class="dn-label">Delivery ID</span>
+                      <span class="dn-value">${deliveryId}</span>
+                    </div>
+                    <div class="col-3">
+                      <span class="dn-label">Current Location</span>
+                      <span class="dn-value text-dark fw-bold">${location}</span>
+                    </div>
+                  </div>
+
+                  <h6 class="fw-bold text-dark mb-2 text-uppercase">Included Part Line Items</h6>
+                  <table class="table table-bordered border-dark align-middle mb-4">
+                    <thead class="table-dark text-uppercase text-xs">
+                      <tr>
+                        <th>Part Number</th>
+                        <th>Description</th>
+                        <th class="text-center">Qty</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      ${modalTableRows}
+                    </tbody>
+                  </table>
+
+                  <div class="row mt-5 pt-3 border-top border-dark align-items-center">
+                    <div class="col-9">
+                      <p class="text-muted text-xs mb-0">
+                        <strong>Official System Generated Record</strong> — EEMC Warehouse & Logistics Management System. Verified & Logged in Live Terminal Database.
+                      </p>
+                    </div>
+                    <div class="col-3 text-end">
+                      <div id="printPageQR" class="d-inline-block p-1 bg-white border border-dark rounded"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="text-center mt-4 no-print">
+                  <button onclick="window.print()" class="btn btn-primary btn-sm px-4"><i class="bi bi-printer me-1"></i> Print Now</button>
+                  <button onclick="window.close()" class="btn btn-secondary btn-sm px-4 ms-2">Close</button>
+                </div>
+              </div>
+
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"><\/script>
+              <script>
+                new QRCode(document.getElementById("printPageQR"), {
+                  text: "EEMC-OFFICIAL-${orderNo}-${esn}",
+                  width: 75,
+                  height: 75,
+                  correctLevel: QRCode.CorrectLevel.H
+                });
+              <\/script>
+            </body>
+          </html>
+        `;
+
+        printWindow.document.open();
+        printWindow.document.write(htmlContent);
+        printWindow.document.close();
+
+        setTimeout(function() {
+          printWindow.focus();
+          printWindow.print();
+        }, 500);
+      }
+
+      // Print Compact Landscape Thermal QR Label Function
+      function printQrLabel() {
+        let orderNo = document.getElementById('vDisplayOrderNo').innerText;
+        let esn = document.getElementById('vEsnNo').innerText;
+        let deliveryId = document.getElementById('vDeliveryId') ? document.getElementById('vDeliveryId').innerText : '44120';
+
+        let printWindow = window.open('', '', 'height=300,width=500');
+        printWindow.document.write('<html><head><title>EEMC Label - ' + orderNo + '</title>');
+        printWindow.document.write('<style>');
+        printWindow.document.write('@page { size: 100mm 50mm; margin: 0; }');
+        printWindow.document.write('body { font-family: Arial, sans-serif; margin: 0; padding: 6px; background: #fff; }');
+        printWindow.document.write('.label-box { width: 100%; height: 100%; border: 1.5px solid #000; padding: 6px 10px; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; }');
+        printWindow.document.write('.label-data { flex-grow: 1; text-align: left; }');
+        printWindow.document.write('.label-data h4 { margin: 0 0 4px 0; font-size: 13px; font-weight: bold; color: #000; text-transform: uppercase; border-bottom: 1px solid #000; padding-bottom: 2px; }');
+        printWindow.document.write('.label-data p { margin: 3px 0; font-size: 11px; color: #000; font-weight: 600; }');
+        printWindow.document.write('.label-barcode { text-align: center; padding-left: 8px; }');
+        printWindow.document.write('</style>');
+        printWindow.document.write('</head><body>');
+        printWindow.document.write('<div class="label-box">');
+        printWindow.document.write('<div class="label-data">');
+        printWindow.document.write('<h4>EEMC WAREHOUSE</h4>');
+        printWindow.document.write('<p>ORDER: ' + orderNo + '</p>');
+        printWindow.document.write('<p>ESN: ' + esn + '</p>');
+        printWindow.document.write('<p>Delivery ID: ' + deliveryId + '</p>');
+        printWindow.document.write('</div>');
+        printWindow.document.write('<div class="label-barcode">');
+        printWindow.document.write('<div id="exactQR"></div>');
+        printWindow.document.write('<span style="font-size:8px; font-weight:bold; display:block; margin-top:2px;">VERIFY</span>');
+        printWindow.document.write('</div>');
+        printWindow.document.write('</div>');
+        printWindow.document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"><\/script>');
+        printWindow.document.write('<script>');
+        printWindow.document.write('window.onload = function() {');
+        printWindow.document.write('  new QRCode(document.getElementById("exactQR"), { text: "EEMC-LABEL-' + orderNo + '-' + deliveryId + '", width: 75, height: 75 });');
+        printWindow.document.write('  setTimeout(function() { window.print(); window.close(); }, 500);');
+        printWindow.document.write('};');
+        printWindow.document.write('<\/script>');
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.focus();
+      }
+
+      // 5. Dynamic Row Add
       function addEditLineRow() {
         let tbody = document.querySelector('#editLineItemsTable tbody');
+        if(!tbody) return;
         let newRow = document.createElement('tr');
-        newRow.innerHTML = `<td><input type="text" class="form-control form-control-sm" placeholder="Part No" required></td><td><input type="text" class="form-control form-control-sm" placeholder="Description" required></td><td><input type="number" class="form-control form-control-sm text-center" value="1" min="1" required></td><td class="text-center"><button type="button" class="btn btn-outline-danger btn-sm py-0 px-2" onclick="removeEditRow(this)"><i class="bi bi-trash"></i></button></td>`;
+        newRow.innerHTML = `
+          <td><input type="text" class="form-control form-control-sm fw-bold text-info" placeholder="Enter Part No" required></td>
+          <td><input type="text" class="form-control form-control-sm" placeholder="Enter Description" required></td>
+          <td><input type="number" class="form-control form-control-sm text-center" value="1" min="1" required></td>
+          <td class="text-center">
+            <button type="button" class="btn btn-outline-danger btn-sm py-0 px-2" onclick="removeEditRow(this)" title="Remove Row">
+              <i class="bi bi-trash"></i>
+            </button>
+          </td>
+        `;
         tbody.appendChild(newRow);
       }
-      function removeEditRow(btn) {
-        let row = btn.closest('tr');
-        if(row.closest('tbody').rows.length > 1) row.remove();
-        else alert('At least one part is required.');
+
+      // 6. Dynamic Row Remove
+      function removeEditRow(button) {
+        let row = button.closest('tr');
+        let tbody = row.closest('tbody');
+        if (tbody.rows.length > 1) {
+          row.remove();
+        } else {
+          alert('An order must contain at least one part line item.');
+        }
       }
+
+      // 7. Delete Record Handlers
       let rowToDelete = null;
-      function prepareDelete(orderNo, btn) {
+      function prepareDelete(orderNo, button) {
         document.getElementById('delTargetOrder').innerText = orderNo;
-        rowToDelete = btn.closest('tr');
+        rowToDelete = button.closest('tr');
       }
+
       function executeDeletion() {
-        if(rowToDelete) rowToDelete.remove();
-        let modal = bootstrap.Modal.getInstance(document.getElementById('deleteConfirmModal'));
-        if(modal) modal.hide();
-      }
-      function printFullRecord(orderNo, esn, deliveryId, location, status, priority) {
-        let rows = document.querySelector('#viewOrderModal tbody').innerHTML;
-        let win = window.open('', '_blank', 'width=900,height=700');
-        win.document.write(`<html><head><title>PO Record - ${orderNo}</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"></head><body class="p-4"><h3>EEMC Purchase Order: ${orderNo}</h3><p><b>ESN:</b> ${esn} | <b>Delivery ID:</b> ${deliveryId} | <b>Location:</b> ${location}</p><table class="table table-bordered"><thead><tr><th>Part</th><th>Desc</th><th>Qty</th><th>Status</th></tr></thead><tbody>${rows}</tbody></table></body></html>`);
-        win.document.close();
-        setTimeout(() => win.print(), 500);
-      }
-      function printQrLabel() {
-        alert("Thermal Label printing initialized.");
+        if (rowToDelete) {
+          rowToDelete.remove();
+          rowToDelete = null;
+        }
+        let modalElement = document.getElementById('deleteConfirmModal');
+        let modalInstance = bootstrap.Modal.getInstance(modalElement);
+        if (modalInstance) {
+          modalInstance.hide();
+        }
       }
     </script>
   </body>
