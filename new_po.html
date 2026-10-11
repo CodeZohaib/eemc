@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>EEMC | New Purchase Order (PO) Entry</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="color-scheme" content="light dark" />
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.3.0/index.css" crossorigin="anonymous" />
+    <!-- OverlayScrollbars -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.16.0/styles/overlayscrollbars.min.css" crossorigin="anonymous" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" crossorigin="anonymous" />
+    <!-- AdminLTE CSS -->
+    <link rel="stylesheet" href="dist/css/adminlte.css" />
+  </head>
+  <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+    <div class="app-wrapper">
+      <!-- Header -->
+      <nav class="app-header navbar navbar-expand bg-body">
+        <div class="container-fluid">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button"><i class="bi bi-list"></i></a>
+            </li>
+            <li class="nav-item d-none d-md-block">
+              <a href="#" class="nav-link">EEMC Engine Maintenance Centre - Repair Orders</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-lte-toggle="fullscreen"><i class="bi bi-arrows-fullscreen"></i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Sidebar -->
+      <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+          <!-- Brand Logo -->
+          <div class="sidebar-brand">
+            <a href="index.html" class="brand-link py-3">
+              <i class="bi bi-gear-wide-connected text-info fs-4 me-2"></i>
+              <span class="brand-text fw-bold">EEMC Hangar G</span>
+            </a>
+          </div>
+          
+          <!-- Sidebar Wrapper -->
+          <div class="sidebar-wrapper">
+            <nav class="mt-2">
+              <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" accordion="false">
+                
+                <!-- Main Dashboard -->
+                <li class="nav-header text-uppercase text-xs fw-bold text-muted">Main Menu</li>
+                <li class="nav-item">
+                  <a href="index.html" class="nav-link">
+                    <i class="nav-icon bi bi-speedometer2"></i>
+                    <p>Dashboard</p>
+                  </a>
+                </li>
+
+                <!-- Receiving Operations -->
+                <li class="nav-header text-uppercase text-xs fw-bold text-muted mt-2">Receiving Operations</li>
+                <li class="nav-item">
+                  <a href="new_ro.html" class="nav-link">
+                    <i class="nav-icon bi bi-file-earmark-plus text-primary"></i>
+                    <p>New RO Entry</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="new_po.html" class="nav-link">
+                    <i class="nav-icon bi bi-file-earmark-text text-success"></i>
+                    <p>New PO Entry</p>
+                  </a>
+                </li>
+
+                <!-- Backlog & Management -->
+                <li class="nav-header text-uppercase text-xs fw-bold text-muted mt-2">Tracking & Management</li>
+                <li class="nav-item">
+                  <a href="ro-backlog.html" class="nav-link">
+                    <i class="nav-icon bi bi-table text-warning"></i>
+                    <p>
+                      RO Management
+                      <span class="badge bg-danger float-end">Urgent</span>
+                    </p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="po-backlog.html" class="nav-link">
+                    <i class="nav-icon bi bi-table text-info"></i>
+                    <p>PO Management</p>
+                  </a>
+                </li>
+
+                <!-- Utilities & Tools -->
+                <li class="nav-header text-uppercase text-xs fw-bold text-muted mt-2">System Tools</li>
+                <li class="nav-item">
+                  <a href="scanner.html" class="nav-link">
+                    <i class="nav-icon bi bi-upc-scan"></i>
+                    <p>QR / Barcode Scanner</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="login.html" class="nav-link">
+                    <i class="nav-icon bi bi-box-arrow-right text-danger"></i>
+                    <p>System Logout</p>
+                  </a>
+                </li>
+
+              </ul>
+            </nav>
+          </div>
+       </aside>
+
+      <!-- Main Content -->
+      <main class="app-main">
+        <div class="app-content-header">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">
+                <h1 class="mb-0 fs-3">New Purchase Order (PO) Entry</h1>
+              </div>
+              <div class="col-sm-6">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">New PO Entry</li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="app-content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="card card-success card-outline mb-4">
+                  <div class="card-header">
+                    <h3 class="card-title"><i class="bi bi-file-earmark-text me-1"></i> Purchase Order & Common Details</h3>
+                  </div>
+                  <form action="#" method="POST" enctype="multipart/form-data">
+                    <div class="card-body">
+                      <!-- Common Header Fields for PO -->
+                      <div class="row bg-body-secondary p-3 rounded mb-4">
+                          <div class="col-md-3 mb-3">
+                          <label for="po_number" class="form-label fw-bold">PO Number <span class="text-danger">*</span></label>
+                          <input type="text" class="form-control" id="po_number" name="po_number" placeholder="e.g. PO-4024" required>
+                        </div>
+                          <div class="col-md-3 mb-3">
+                            <label for="esn_number" class="form-label fw-bold">ESN (Engine Serial No) <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="esn_number" name="esn_number" placeholder="e.g. ESN-77421" required>
+                          </div>
+                          <div class="col-md-3 mb-3">
+                            <label for="delivery_id" class="form-label fw-bold">Delivery ID</label>
+                            <input type="text" class="form-control" id="delivery_id" name="delivery_id" placeholder="e.g. DEL-88392">
+                          </div>
+                          <div class="col-md-3 mb-3">
+                            <label for="location" class="form-label fw-bold">Location</label>
+                            <input type="text" class="form-control" id="location" name="location" value="Hangar G - Bay 600" required>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label for="priority" class="form-label fw-bold">Priority Status</label>
+                            <select class="form-select" id="priority" name="priority" required>
+                              <option value="Normal">Normal</option>
+                              <option value="Urgent">Urgent</option>
+                            </select>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label for="status" class="form-label fw-bold">Status</label>
+                            <select class="form-select" id="status" name="status" required>
+                              <option value="Planned">Planned</option>
+                              <option value="Under MIO Inspection">Under MIO Inspection</option>
+                              <option value="MRB">MRB</option>
+                              <option value="Released">Released</option>
+                              <option value="Cancelled">Cancelled</option>
+                            </select>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label for="document" class="form-label fw-bold">Upload Document / PDF</label>
+                            <input type="file" class="form-control" id="document" name="document" accept=".pdf,.doc,.docx">
+                          </div>
+                      </div>
+
+                      <!-- Multiple Parts Items Section -->
+                      <h4 class="mb-3 fs-5 fw-bold text-success"><i class="bi bi-boxes me-1"></i> Line Items / Parts List (Multiple Parts in this PO/DN)</h4>
+                      
+                      <div class="table-responsive">
+                        <table class="table table-bordered align-middle" id="parts_table">
+                          <thead class="table-light">
+                            <tr>
+                              <th style="width: 30%;">Part Number <span class="text-danger">*</span></th>
+                              <th style="width: 40%;">Part Description</th>
+                              <th style="width: 20%;">Quantity <span class="text-danger">*</span></th>
+                              <th style="width: 10%; text-align: center;">Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                <input type="text" class="form-control" name="parts[0][part_number]" placeholder="e.g. 542C300-02" required>
+                              </td>
+                              <td>
+                                <input type="text" class="form-control" name="parts[0][part_desc]" placeholder="e.g. TURBINE BLADE">
+                              </td>
+                              <td>
+                                <input type="number" class="form-control" name="parts[0][quantity]" placeholder="1" min="1" required>
+                              </td>
+                              <td class="text-center">
+                                <button type="button" class="btn btn-danger btn-sm" disabled><i class="bi bi-trash"></i></button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <div class="mb-4">
+                        <button type="button" class="btn btn-success btn-sm" id="add_row_btn">
+                          <i class="bi bi-plus-circle me-1"></i> Add Another Part
+                        </button>
+                      </div>
+
+                    </div>
+
+                    <div class="card-footer text-end">
+                      <button type="reset" class="btn btn-secondary me-2">Reset Form</button>
+                      <button type="submit" class="btn btn-success"><i class="bi bi-save me-1"></i> Save Complete Entry</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="app-footer">
+        <div class="float-end d-none d-sm-inline">EEMC Hangar G</div>
+        <strong>Copyright &copy; 2026 <a href="#" class="text-decoration-none">EEMC Operations</a>.</strong> All rights reserved.
+      </footer>
+    </div>
+
+    <!-- Script for Dynamic Rows -->
+    <script>
+      let rowIndex = 1;
+      document.getElementById('add_row_btn').addEventListener('click', function () {
+        let tableBody = document.querySelector('#parts_table tbody');
+        let newRow = document.createElement('tr');
+        newRow.innerHTML = `
+          <td>
+            <input type="text" class="form-control" name="parts[${rowIndex}][part_number]" placeholder="e.g. Part No" required>
+          </td>
+          <td>
+            <input type="text" class="form-control" name="parts[${rowIndex}][part_desc]" placeholder="Description">
+          </td>
+          <td>
+            <input type="number" class="form-control" name="parts[${rowIndex}][quantity]" placeholder="1" min="1" required>
+          </td>
+          <td class="text-center">
+            <button type="button" class="btn btn-danger btn-sm remove-row-btn"><i class="bi bi-trash"></i></button>
+          </td>
+        `;
+        tableBody.appendChild(newRow);
+        rowIndex++;
+      });
+
+      document.addEventListener('click', function (e) {
+        if (e.target && (e.target.classList.contains('remove-row-btn') || e.target.closest('.remove-row-btn'))) {
+          let btn = e.target.closest('.remove-row-btn');
+          btn.closest('tr').remove();
+        }
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.16.0/browser/overlayscrollbars.browser.es6.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="dist/js/adminlte.js"></script>
+  </body>
+</html>
