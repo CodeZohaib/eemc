@@ -42,7 +42,7 @@
         <div class="sidebar-brand">
           <a href="index.html" class="brand-link py-3">
             <i class="bi bi-gear-wide-connected text-info fs-4 me-2"></i>
-            <span class="brand-text fw-bold">EEMC Hangar G</span>
+            <span class="brand-text fw-bold">EEMC RECEIVING</span>
           </a>
         </div>
         
@@ -236,7 +236,7 @@
                                 title="View Details" 
                                 data-bs-toggle="modal" 
                                 data-bs-target="#viewOrderModal"
-                                onclick="loadViewDetails('PO-55102', 'ESN-55102', '44120', 'Hangar G - Bay 600', 'Planned', 'Normal')">
+                                onclick="loadViewDetails('PO-55102', 'ESN-55102', '44120', 'GE-01-02', 'Planned', 'Normal')">
                           <i class="bi bi-eye-fill"></i>
                         </button>
 
@@ -245,7 +245,7 @@
                                 title="Edit Order Details" 
                                 data-bs-toggle="modal" 
                                 data-bs-target="#editOrderModal"
-                                onclick="loadEditData('PO-55102', 'ESN-55102', '44120', 'Hangar G - Bay 600', 'Planned', 'Normal')">
+                                onclick="loadEditData('PO-55102', 'ESN-55102', '44120', 'GE-01-02', 'Planned', 'Normal')">
                           <i class="bi bi-pencil-square"></i>
                         </button>
 
@@ -273,7 +273,7 @@
                                 title="View Details" 
                                 data-bs-toggle="modal" 
                                 data-bs-target="#viewOrderModal"
-                                onclick="loadViewDetails('PO-55105', 'ESN-66419', '44189', 'Hangar G - Bay 600', 'Under MIO Inspection', 'Urgent')">
+                                onclick="loadViewDetails('PO-55105', 'ESN-66419', '44189', 'GE-01-02', 'Under MIO Inspection', 'Urgent')">
                           <i class="bi bi-eye-fill"></i>
                         </button>
 
@@ -282,7 +282,7 @@
                                 title="Edit Order Details" 
                                 data-bs-toggle="modal" 
                                 data-bs-target="#editOrderModal"
-                                onclick="loadEditData('PO-55105', 'ESN-66419', '44189', 'Hangar G - Bay 600', 'Under MIO Inspection', 'Urgent')">
+                                onclick="loadEditData('PO-55105', 'ESN-66419', '44189', 'GE-01-02', 'Under MIO Inspection', 'Urgent')">
                           <i class="bi bi-pencil-square"></i>
                         </button>
 
@@ -338,7 +338,7 @@
                 </div>
                 <div class="col-sm-3">
                   <span class="text-xs text-muted text-uppercase fw-bold d-block">Current Location</span>
-                  <span class="fs-6 fw-bold text-dark" id="vLocation">Hangar G - Bay 600</span>
+                  <span class="fs-6 fw-bold text-dark" id="vLocation">GE-01-02</span>
                 </div>
               </div>
 
@@ -446,7 +446,7 @@
                       </div>
                       <div class="col-md-3">
                         <label class="form-label text-xs fw-bold text-uppercase text-muted">Current Location <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control form-control-sm fw-semibold" id="eLocation" required placeholder="e.g. Hangar G - Bay 600">
+                        <input type="text" class="form-control form-control-sm fw-semibold" id="eLocation" required placeholder="e.g. GE-01-02">
                       </div>
                       <div class="col-md-6">
                         <label class="form-label text-xs fw-bold text-uppercase text-muted">Receiving Status <span class="text-danger">*</span></label>
@@ -574,7 +574,7 @@
       </div>
 
       <footer class="app-footer">
-        <div class="float-end d-none d-sm-inline">EEMC Hangar G</div>
+        <div class="float-end d-none d-sm-inline">EEMC RECEIVING</div>
         <strong>Copyright &copy; 2026 <a href="#" class="text-decoration-none">EEMC Operations</a>.</strong> All rights reserved.
       </footer>
     </div>
@@ -627,7 +627,7 @@
         let orderNo = document.getElementById('vDisplayOrderNo') ? document.getElementById('vDisplayOrderNo').innerText : 'PO-55102';
         let esn = document.getElementById('vEsnNo') ? document.getElementById('vEsnNo').innerText : 'ESN-55102';
         let deliveryId = document.getElementById('vDeliveryId') ? document.getElementById('vDeliveryId').innerText : '44120';
-        let location = document.getElementById('vLocation') ? document.getElementById('vLocation').innerText : 'Hangar G - Bay 600';
+        let location = document.getElementById('vLocation') ? document.getElementById('vLocation').innerText : 'GE-01-02';
         let status = document.getElementById('vStatusBadge') ? document.getElementById('vStatusBadge').innerText : 'Planned';
         let priority = document.getElementById('vPriorityBadge') ? document.getElementById('vPriorityBadge').innerText : 'Normal';
         
@@ -665,7 +665,7 @@
                   <div class="row align-items-center mb-4 pb-3 border-bottom border-dark">
                     <div class="col-7">
                       <h2 class="fw-bold text-dark m-0">EEMC <span class="fw-light text-muted">Warehouse & Logistics</span></h2>
-                      <p class="text-muted text-sm m-0">Engine Maintenance Centre • Hangar G, Al Maktoum Int'l Airport</p>
+                      <p class="text-muted text-sm m-0">Engine Maintenance Centre • GE-01-02, Al Maktoum Int'l Airport</p>
                     </div>
                     <div class="col-5 text-end">
                       <h5 class="text-uppercase text-secondary fw-bold m-0" style="letter-spacing: 1px;">PURCHASE ORDER RECORD</h5>
