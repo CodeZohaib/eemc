@@ -3,6 +3,21 @@
  * Copyright 2014-2026 Colorlib <https://colorlib.com>
  * Licensed under MIT (https://github.com/ColorlibHQ/AdminLTE/blob/master/LICENSE)
  */
+  document.addEventListener("DOMContentLoaded", function () {
+    let currentPath = window.location.pathname.split("/").pop();
+    if (!currentPath || currentPath === "") currentPath = "index.html";
+
+    let navLinks = document.querySelectorAll(".app-sidebar .nav-link");
+    navLinks.forEach(function (link) {
+      let href = link.getAttribute("href");
+      if (href && href === currentPath) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  });
+
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
     typeof define === 'function' && define.amd ? define(['exports'], factory) :

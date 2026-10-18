@@ -96,82 +96,92 @@
         </div>
       </nav>
 
-      <!-- Sidebar -->
+          <!-- Sidebar -->
       <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
-          <!-- Brand Logo -->
-          <div class="sidebar-brand">
-            <a href="index.html" class="brand-link py-3">
-              <i class="bi bi-gear-wide-connected text-info fs-4 me-2"></i>
-              <span class="brand-text fw-bold">EEMC RECEIVING</span>
-            </a>
-          </div>
-          
-          <!-- Sidebar Wrapper -->
-          <div class="sidebar-wrapper">
-            <nav class="mt-2">
-              <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" accordion="false">
-                
-                <!-- Main Dashboard -->
-                <li class="nav-header text-uppercase text-xs fw-bold text-muted">Main Menu</li>
-                <li class="nav-item">
-                  <a href="index.html" class="nav-link">
-                    <i class="nav-icon bi bi-speedometer2"></i>
-                    <p>Dashboard</p>
-                  </a>
-                </li>
+        <!-- Brand Logo -->
+        <div class="sidebar-brand">
+          <a href="index.html" class="brand-link py-3">
+            <i class="bi bi-gear-wide-connected text-info fs-4 me-2"></i>
+            <span class="brand-text fw-bold">EEMC RECEIVING</span>
+          </a>
+        </div>
+        
+        <!-- Sidebar Wrapper -->
+        <div class="sidebar-wrapper">
+          <nav class="mt-2">
+            <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" accordion="false">
+              
+              <!-- Main Dashboard -->
+              <li class="nav-header text-uppercase text-xs fw-bold text-muted">Main Menu</li>
+              <li class="nav-item">
+                <a href="index.html" class="nav-link">
+                  <i class="nav-icon bi bi-speedometer2"></i>
+                  <p>Dashboard</p>
+                </a>
+              </li>
 
-                <!-- Receiving Operations -->
-                <li class="nav-header text-uppercase text-xs fw-bold text-muted mt-2">Receiving Operations</li>
-                <li class="nav-item">
-                  <a href="new_ro.html" class="nav-link">
-                    <i class="nav-icon bi bi-file-earmark-plus text-primary"></i>
-                    <p>New RO Entry</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="new_po.html" class="nav-link">
-                    <i class="nav-icon bi bi-file-earmark-text text-success"></i>
-                    <p>New PO Entry</p>
-                  </a>
-                </li>
+              <!-- Receiving Operations -->
+              <li class="nav-header text-uppercase text-xs fw-bold text-muted mt-2">Receiving Operations</li>
+              <li class="nav-item">
+                <a href="new_ro.html" class="nav-link">
+                  <i class="nav-icon bi bi-file-earmark-plus text-primary"></i>
+                  <p>New RO Entry</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="new_po.html" class="nav-link">
+                  <i class="nav-icon bi bi-file-earmark-text text-success"></i>
+                  <p>New PO Entry</p>
+                </a>
+              </li>
 
-                <!-- Backlog & Management -->
-                <li class="nav-header text-uppercase text-xs fw-bold text-muted mt-2">Tracking & Management</li>
-                <li class="nav-item">
-                  <a href="ro-backlog.html" class="nav-link">
-                    <i class="nav-icon bi bi-table text-warning"></i>
-                    <p>
-                      RO Management
-                      <span class="badge bg-danger float-end">Urgent</span>
-                    </p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="po-backlog.html" class="nav-link">
-                    <i class="nav-icon bi bi-table text-info"></i>
-                    <p>PO Management</p>
-                  </a>
-                </li>
+              <!-- Backlog & Management -->
+              <li class="nav-header text-uppercase text-xs fw-bold text-muted mt-2">Tracking & Management</li>
+              <li class="nav-item">
+                <a href="ro-backlog.html" class="nav-link">
+                  <i class="nav-icon bi bi-table text-warning"></i>
+                  <p>RO Management</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="po-backlog.html" class="nav-link">
+                  <i class="nav-icon bi bi-table text-info"></i>
+                  <p>PO Management</p>
+                </a>
+              </li>
 
-                <!-- Utilities & Tools -->
-                <li class="nav-header text-uppercase text-xs fw-bold text-muted mt-2">System Tools</li>
-                <li class="nav-item">
-                  <a href="scanner.html" class="nav-link active">
-                    <i class="nav-icon bi bi-upc-scan"></i>
-                    <p>QR / Barcode Scanner</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="login.html" class="nav-link">
-                    <i class="nav-icon bi bi-box-arrow-right text-danger"></i>
-                    <p>System Logout</p>
-                  </a>
-                </li>
+              <!-- Administration & Access Control -->
+              <li class="nav-header text-uppercase text-xs fw-bold text-muted mt-2">Administration</li>
+              <li class="nav-item">
+                <a href="users.html" class="nav-link">
+                  <i class="nav-icon bi bi-people-fill text-danger"></i>
+                  <p>
+                    User Accounts
+                    <span class="badge bg-secondary float-end"></span>
+                  </p>
+                </a>
+              </li>
 
-              </ul>
-            </nav>
-          </div>
-       </aside>
+              <!-- Utilities & Tools -->
+              <li class="nav-header text-uppercase text-xs fw-bold text-muted mt-2">System Tools</li>
+              <li class="nav-item">
+                <a href="scanner.html" class="nav-link">
+                  <i class="nav-icon bi bi-upc-scan"></i>
+                  <p>QR / Barcode Scanner</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="login.html" class="nav-link">
+                  <i class="nav-icon bi bi-box-arrow-right text-danger"></i>
+                  <p>System Logout</p>
+                </a>
+              </li>
+
+            </ul>
+          </nav>
+        </div>
+      </aside>
+
 
       <!-- Main Content -->
       <main class="app-main">
