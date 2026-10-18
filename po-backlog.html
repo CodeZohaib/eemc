@@ -183,7 +183,7 @@
                       </div>
 
                       <!-- Excel Export Button -->
-                      <button type="button" class="btn btn-success btn-sm px-3 d-flex align-items-center gap-1 shadow-sm">
+                      <button type="button" class="btn btn-success btn-sm px-3 d-flex align-items-center gap-1 shadow-sm" onclick="exportTableToExcel('poBacklogTable', 'EEMC_Purchase_Orders_Backlog.csv')">
                         <i class="bi bi-file-earmark-excel-fill"></i>
                         <span>Export Excel</span>
                       </button>
@@ -201,103 +201,96 @@
                 <h3 class="card-title"><i class="bi bi-list-task me-1"></i> Purchase Orders List</h3>
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 220px;">
-                    <input type="text" class="form-control" placeholder="Search PO No / Part...">
-                    <button class="btn btn-default" type="submit"><i class="bi bi-search"></i></button>
+                    <input type="text" id="tableSearchInput" class="form-control" placeholder="Search PO No / Part..." onkeyup="filterTableRows()">
+                    <button class="btn btn-default" type="button"><i class="bi bi-search"></i></button>
                   </div>
                 </div>
               </div>
               
-              <div class="card-body table-responsive p-0">
-                <table class="table table-hover table-striped align-middle text-nowrap">
-                  <thead>
-                    <tr>
-                      <th>PO Number</th>
-                      <th>Delivery ID</th>
-                      <th>Part No / Desc</th>
-                      <th>Qty</th>
-                      <th>Location</th>
-                      <th>Priority</th>
-                      <th>Status</th>
-                      <th class="text-center">Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><span class="fw-bold text-info">PO-55102</span></td>
-                      <td>44120</td>
-                      <td>402K300-02 <br><small class="text-muted">TURBINE BLADE</small></td>
-                      <td>4</td>
-                      <td>Bay 600</td>
-                      <td><span class="badge bg-primary">Normal</span></td>
-                      <td><span class="badge bg-warning text-dark">Planned</span></td>
-                      <td class="text-center">
-                        <!-- View Details Button -->
-                        <button class="btn btn-sm btn-light text-primary shadow-sm me-1" 
-                                title="View Details" 
-                                data-bs-toggle="modal" 
-                                data-bs-target="#viewOrderModal"
-                                onclick="loadViewDetails('PO-55102', 'ESN-55102', '44120', 'GE-01-02', 'Planned', 'Normal')">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-
-                        <!-- Edit Order Button -->
-                        <button class="btn btn-sm btn-light text-warning shadow-sm me-1" 
-                                title="Edit Order Details" 
-                                data-bs-toggle="modal" 
-                                data-bs-target="#editOrderModal"
-                                onclick="loadEditData('PO-55102', 'ESN-55102', '44120', 'GE-01-02', 'Planned', 'Normal')">
-                          <i class="bi bi-pencil-square"></i>
-                        </button>
-
-                        <!-- Delete Order Button -->
-                        <button class="btn btn-sm btn-light text-danger shadow-sm" 
-                                title="Delete Order Record" 
-                                data-bs-toggle="modal" 
-                                data-bs-target="#deleteConfirmModal"
-                                onclick="prepareDelete('PO-55102', this)">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><span class="fw-bold text-info">PO-55105</span></td>
-                      <td>44189</td>
-                      <td>910W200-08 <br><small class="text-muted">SEAL RING</small></td>
-                      <td>6</td>
-                      <td>Bay 600</td>
-                      <td><span class="badge bg-danger">Urgent</span></td>
-                      <td><span class="badge bg-info text-dark">Under MIO Inspection</span></td>
-                      <td class="text-center">
-                        <!-- View Details Button -->
-                        <button class="btn btn-sm btn-light text-primary shadow-sm me-1" 
-                                title="View Details" 
-                                data-bs-toggle="modal" 
-                                data-bs-target="#viewOrderModal"
-                                onclick="loadViewDetails('PO-55105', 'ESN-66419', '44189', 'GE-01-02', 'Under MIO Inspection', 'Urgent')">
-                          <i class="bi bi-eye-fill"></i>
-                        </button>
-
-                        <!-- Edit Order Button -->
-                        <button class="btn btn-sm btn-light text-warning shadow-sm me-1" 
-                                title="Edit Order Details" 
-                                data-bs-toggle="modal" 
-                                data-bs-target="#editOrderModal"
-                                onclick="loadEditData('PO-55105', 'ESN-66419', '44189', 'GE-01-02', 'Under MIO Inspection', 'Urgent')">
-                          <i class="bi bi-pencil-square"></i>
-                        </button>
-
-                        <!-- Delete Order Button -->
-                        <button class="btn btn-sm btn-light text-danger shadow-sm" 
-                                title="Delete Order Record" 
-                                data-bs-toggle="modal" 
-                                data-bs-target="#deleteConfirmModal"
-                                onclick="prepareDelete('PO-55105', this)">
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+              <!-- Fully Responsive Table Container -->
+              <div class="card-body p-0">
+                <div class="table-responsive">
+                  <table class="table table-hover table-striped align-middle text-nowrap mb-0" id="poBacklogTable">
+                    <thead class="table-light">
+                      <tr>
+                        <th>PO Number</th>
+                        <th>Delivery ID</th>
+                        <th>Part No / Desc</th>
+                        <th>Qty</th>
+                        <th>Location</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th class="text-center">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><span class="fw-bold text-info">PO-55102</span></td>
+                        <td>44120</td>
+                        <td>402K300-02 <br><small class="text-muted">TURBINE BLADE</small></td>
+                        <td>4</td>
+                        <td>Bay 600</td>
+                        <td><span class="badge bg-primary">Normal</span></td>
+                        <td><span class="badge bg-warning text-dark">Planned</span></td>
+                        <td class="text-center">
+                          <button class="btn btn-sm btn-light text-primary shadow-sm me-1" 
+                                  title="View Details" 
+                                  data-bs-toggle="modal" 
+                                  data-bs-target="#viewOrderModal"
+                                  onclick="loadViewDetails('PO-55102', 'ESN-55102', '44120', 'GE-01-02', 'Planned', 'Normal')">
+                            <i class="bi bi-eye-fill"></i>
+                          </button>
+                          <button class="btn btn-sm btn-light text-warning shadow-sm me-1" 
+                                  title="Edit Order Details" 
+                                  data-bs-toggle="modal" 
+                                  data-bs-target="#editOrderModal"
+                                  onclick="loadEditData('PO-55102', 'ESN-55102', '44120', 'GE-01-02', 'Planned', 'Normal')">
+                            <i class="bi bi-pencil-square"></i>
+                          </button>
+                          <button class="btn btn-sm btn-light text-danger shadow-sm" 
+                                  title="Delete Order Record" 
+                                  data-bs-toggle="modal" 
+                                  data-bs-target="#deleteConfirmModal"
+                                  onclick="prepareDelete('PO-55102', this)">
+                            <i class="bi bi-trash-fill"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><span class="fw-bold text-info">PO-55105</span></td>
+                        <td>44189</td>
+                        <td>910W200-08 <br><small class="text-muted">SEAL RING</small></td>
+                        <td>6</td>
+                        <td>Bay 600</td>
+                        <td><span class="badge bg-danger">Urgent</span></td>
+                        <td><span class="badge bg-info text-dark">Under MIO Inspection</span></td>
+                        <td class="text-center">
+                          <button class="btn btn-sm btn-light text-primary shadow-sm me-1" 
+                                  title="View Details" 
+                                  data-bs-toggle="modal" 
+                                  data-bs-target="#viewOrderModal"
+                                  onclick="loadViewDetails('PO-55105', 'ESN-66419', '44189', 'GE-01-02', 'Under MIO Inspection', 'Urgent')">
+                            <i class="bi bi-eye-fill"></i>
+                          </button>
+                          <button class="btn btn-sm btn-light text-warning shadow-sm me-1" 
+                                  title="Edit Order Details" 
+                                  data-bs-toggle="modal" 
+                                  data-bs-target="#editOrderModal"
+                                  onclick="loadEditData('PO-55105', 'ESN-66419', '44189', 'GE-01-02', 'Under MIO Inspection', 'Urgent')">
+                            <i class="bi bi-pencil-square"></i>
+                          </button>
+                          <button class="btn btn-sm btn-light text-danger shadow-sm" 
+                                  title="Delete Order Record" 
+                                  data-bs-toggle="modal" 
+                                  data-bs-target="#deleteConfirmModal"
+                                  onclick="prepareDelete('PO-55105', this)">
+                            <i class="bi bi-trash-fill"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
 
               <div class="card-footer clearfix">
@@ -324,19 +317,19 @@
             <div class="modal-body p-4" id="printableArea">
               <!-- Header Details Grid -->
               <div class="row g-3 bg-light p-3 rounded mb-4 border">
-                <div class="col-sm-3">
+                <div class="col-sm-3 col-6">
                   <span class="text-xs text-muted text-uppercase fw-bold d-block">Order Number</span>
                   <span class="fs-6 fw-bold text-info" id="vDisplayOrderNo">PO-55102</span>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-3 col-6">
                   <span class="text-xs text-muted text-uppercase fw-bold d-block">ESN Number</span>
                   <span class="fs-6 fw-bold text-danger" id="vEsnNo">ESN-55102</span>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-3 col-6">
                   <span class="text-xs text-muted text-uppercase fw-bold d-block">Delivery ID</span>
                   <span class="fs-6 fw-bold text-dark" id="vDeliveryId">44120</span>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-3 col-6">
                   <span class="text-xs text-muted text-uppercase fw-bold d-block">Current Location</span>
                   <span class="fs-6 fw-bold text-dark" id="vLocation">GE-01-02</span>
                 </div>
@@ -374,7 +367,7 @@
               </div>
 
               <!-- Attachments & Official Statement -->
-              <div class="p-3 bg-body-secondary rounded border-start border-3 border-info d-flex justify-content-between align-items-center">
+              <div class="p-3 bg-body-secondary rounded border-start border-3 border-info d-flex flex-wrap justify-content-between align-items-center gap-2">
                 <div>
                   <span class="text-xs fw-bold text-muted d-block mb-1"><i class="bi bi-paperclip me-1"></i> Attached Documents:</span>
                   <a href="#" class="btn btn-xs btn-outline-info py-1"><i class="bi bi-file-earmark-pdf me-1"></i> PO_Waybill.pdf</a>
@@ -386,7 +379,7 @@
               </div>
             </div>
 
-            <div class="modal-footer bg-light d-flex justify-content-between align-items-center p-3">
+            <div class="modal-footer bg-light d-flex flex-wrap justify-content-between align-items-center p-3">
               <div>
                 <button type="button" class="btn btn-outline-dark btn-sm fw-semibold shadow-sm d-inline-flex align-items-center gap-1" onclick="printQrLabel()">
                   <i class="bi bi-qr-code-scan"></i>
@@ -791,6 +784,50 @@
         printWindow.document.write('</body></html>');
         printWindow.document.close();
         printWindow.focus();
+      }
+
+      // Excel Export Functionality
+      function exportTableToExcel(tableID, filename = '') {
+        let csv = [];
+        let rows = document.querySelectorAll("#" + tableID + " tr");
+        
+        for (let i = 0; i < rows.length; i++) {
+          let row = [], cols = rows[i].querySelectorAll("td, th");
+          for (let j = 0; j < cols.length - 1; j++) { // Skip Action column
+            let data = cols[j].innerText.replace(/(\r\n|\n|\r)/gm, " ").replace(/(\s\s)/gm, " ");
+            row.push('"' + data + '"');
+          }
+          csv.push(row.join(","));
+        }
+        
+        let csvFile = new Blob([csv.join("\n")], { type: "text/csv" });
+        let downloadLink = document.createElement("a");
+        downloadLink.download = filename;
+        downloadLink.href = window.URL.createObjectURL(csvFile);
+        downloadLink.style.display = "none";
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+      }
+
+      // Table Search Filtering
+      function filterTableRows() {
+        let input = document.getElementById("tableSearchInput").value.toLowerCase();
+        let table = document.getElementById("poBacklogTable");
+        let tr = table.getElementsByTagName("tr");
+        for (let i = 1; i < tr.length; i++) {
+          let tdOrder = tr[i].getElementsByTagName("td")[0];
+          let tdPart = tr[i].getElementsByTagName("td")[2];
+          if (tdOrder || tdPart) {
+            let txtOrder = tdOrder ? tdOrder.textContent || tdOrder.innerText : "";
+            let txtPart = tdPart ? tdPart.textContent || tdPart.innerText : "";
+            if (txtOrder.toLowerCase().indexOf(input) > -1 || txtPart.toLowerCase().indexOf(input) > -1) {
+              tr[i].style.display = "";
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
       }
 
       // 5. Dynamic Row Add
