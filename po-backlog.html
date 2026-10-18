@@ -207,13 +207,14 @@
                 </div>
               </div>
               
-              <!-- Fully Responsive Table Container -->
+              <!-- Fully Responsive Table Container with ESN Column -->
               <div class="card-body p-0">
                 <div class="table-responsive">
                   <table class="table table-hover table-striped align-middle text-nowrap mb-0" id="poBacklogTable">
                     <thead class="table-light">
                       <tr>
                         <th>PO Number</th>
+                        <th>ESN No</th>
                         <th>Delivery ID</th>
                         <th>Part No / Desc</th>
                         <th>Qty</th>
@@ -226,6 +227,7 @@
                     <tbody>
                       <tr>
                         <td><span class="fw-bold text-info">PO-55102</span></td>
+                        <td><span class="fw-bold text-danger">ESN-55102</span></td>
                         <td>44120</td>
                         <td>402K300-02 <br><small class="text-muted">TURBINE BLADE</small></td>
                         <td>4</td>
@@ -258,6 +260,7 @@
                       </tr>
                       <tr>
                         <td><span class="fw-bold text-info">PO-55105</span></td>
+                        <td><span class="fw-bold text-danger">ESN-66419</span></td>
                         <td>44189</td>
                         <td>910W200-08 <br><small class="text-muted">SEAL RING</small></td>
                         <td>6</td>
@@ -767,7 +770,7 @@
         printWindow.document.write('<h4>EEMC WAREHOUSE</h4>');
         printWindow.document.write('<p>ORDER: ' + orderNo + '</p>');
         printWindow.document.write('<p>ESN: ' + esn + '</p>');
-        printWindow.document.write('<p>Delivery ID: ' + deliveryId + '</p>');
+        printWindow.document.write('<p>DEL ID: ' + deliveryId + '</p>');
         printWindow.document.write('</div>');
         printWindow.document.write('<div class="label-barcode">');
         printWindow.document.write('<div id="exactQR"></div>');
@@ -817,7 +820,7 @@
         let tr = table.getElementsByTagName("tr");
         for (let i = 1; i < tr.length; i++) {
           let tdOrder = tr[i].getElementsByTagName("td")[0];
-          let tdPart = tr[i].getElementsByTagName("td")[2];
+          let tdPart = tr[i].getElementsByTagName("td")[3];
           if (tdOrder || tdPart) {
             let txtOrder = tdOrder ? tdOrder.textContent || tdOrder.innerText : "";
             let txtPart = tdPart ? tdPart.textContent || tdPart.innerText : "";
